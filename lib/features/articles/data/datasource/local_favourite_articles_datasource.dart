@@ -16,6 +16,15 @@ class LocalFavouriteArticlesDatasource {
     return jsonList.map((json) => ArticleModel.fromJson(json)).toList();
   }
 
+  ///  Check if article exist in Local DB
+  Future<bool> isFavouriteArticle(int id) async {
+    var result = await database.getStringList(_key);
+    final jsonList = result.map((strJson) => jsonDecode(strJson)).toList();
+    final articles =
+        jsonList.map((json) => ArticleModel.fromJson(json)).toList();
+    return articles.any((item) => item.id == id);
+  }
+
   ///  Set favourite article to Local DB
   Future<List<ArticleModel>> addFavouriteArticles(ArticleModel article) async {
     var result = await database.getStringList(_key);

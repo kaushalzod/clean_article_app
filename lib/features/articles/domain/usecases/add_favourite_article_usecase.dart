@@ -3,12 +3,12 @@ import 'package:article_app/core/model/failure.dart';
 import 'package:article_app/features/articles/domain/entities/article.dart';
 import 'package:article_app/features/articles/domain/repositories/article_repository.dart';
 
-class ToggleFavouriteArticleUsecase {
+class AddFavouriteArticleUsecase {
   final ArticleRepository articleRepository;
 
-  ToggleFavouriteArticleUsecase(this.articleRepository);
+  AddFavouriteArticleUsecase(this.articleRepository);
 
-  Future<Either<Failure, Article>> call() async {
-    return await articleRepository.toggleFavouriteArticle();
+  Future<Either<Failure, List<Article>>> call(Article article) async {
+    return await articleRepository.addFavouriteArticle(article);
   }
 }

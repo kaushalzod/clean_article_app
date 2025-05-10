@@ -27,10 +27,17 @@ class RemoteArticlesDatasource {
   ///  Search articles from API by title or body
   Future<List<ArticleModel>> searchArticles(String query) async {
     try {
-      var result = await dioClient.get("/posts?title_like=^$query");
+      var result = await dioClient.get("/posts");
       if (result.statusCode == 200) {
         final List jsonList = (result.data as List);
-        return jsonList.map((item) => ArticleModel.fromJson(item)).toList();
+        final articles =
+            jsonList.map((item) => ArticleModel.fromJson(item)).toList();
+        return articles.where((article) {
+          final title = article.title.toString().toLowerCase();
+          final body = article.body.toString().toLowerCase();
+          final searchQuery = query.toLowerCase();
+          return title.contains(searchQuery) || body.contains(searchQuery);
+        }).toList();
       } else {
         throw ServerFailure(
           errorMessage: "Failed to load articles: ${result.statusCode}",

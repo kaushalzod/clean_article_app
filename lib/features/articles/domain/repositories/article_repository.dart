@@ -15,8 +15,13 @@ abstract class ArticleRepository {
   /// Get List of all the Favourite Articles
   Future<Either<Failure, List<Article>>> getFavouriteArticles();
 
-  /// Toggle favourite article in local data source
-  Future<Either<Failure, Article>> toggleFavouriteArticle();
+  /// Add favourite article in local data source
+  Future<Either<Failure, List<Article>>> addFavouriteArticle(Article article);
+
+  /// Remove favourite article in local data source
+  Future<Either<Failure, List<Article>>> removeFavouriteArticle(
+    Article article,
+  );
 
   /// Returns bool if given article id is marked as favourite
   Future<Either<Failure, bool>> isFavouriteArticle(int id);
