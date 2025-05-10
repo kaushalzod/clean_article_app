@@ -2,7 +2,7 @@ abstract class Either<L, R> {
   T fold<T>(T Function(L l) leftFn, T Function(R r) rightFn);
 }
 
-class Left<L, R> implements Either {
+class Left<L, R> extends Either<L, R> {
   final L value;
 
   Left(this.value);
@@ -13,7 +13,7 @@ class Left<L, R> implements Either {
   }
 }
 
-class Right<L, R> implements Either {
+class Right<L, R> extends Either<L, R> {
   final R value;
 
   Right(this.value);
