@@ -6,9 +6,7 @@ class LocalDatabase {
   /// Initializes the SharedPreferences instance.
   static Future<void> init() async {
     _prefs ??= await SharedPreferences.getInstance();
-    print(
-      "⚠️ LocalDatabase initialized. Make sure to call 'LocalDatabase.init()' in main.dart before accessing storage.",
-    );
+    print("✅ LocalDatabase initialized.");
   }
 
   /// Ensures the database is initialized.
