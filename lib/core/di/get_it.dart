@@ -3,6 +3,7 @@ import 'package:article_app/core/network/dio_client.dart';
 import 'package:article_app/features/articles/data/datasource/local_favourite_articles_datasource.dart';
 import 'package:article_app/features/articles/data/datasource/remote_articles_datasource.dart';
 import 'package:article_app/features/articles/data/repository/article_repository_impl.dart';
+import 'package:article_app/features/articles/domain/repositories/article_repository.dart';
 import 'package:article_app/features/articles/domain/usecases/add_favourite_article_usecase.dart';
 import 'package:article_app/features/articles/domain/usecases/get_article_by_id_usecase.dart';
 import 'package:article_app/features/articles/domain/usecases/get_articles_usecase.dart';
@@ -15,9 +16,9 @@ import 'package:article_app/features/articles/presentation/provider/favourite_ar
 import 'package:article_app/features/articles/presentation/provider/single_article_provider.dart';
 import 'package:get_it/get_it.dart';
 
-final getIt = GetIt.instance;
+var getIt = GetIt.instance;
 
-void setup() async {
+Future setup() async {
   await registerDatabase();
   registerNetworkClient();
   registerDatasource();
@@ -41,7 +42,7 @@ void registerDatasource() async {
 }
 
 void registerRepository() async {
-  getIt.registerSingleton(
+  getIt.registerSingleton<ArticleRepository>(
     ArticleRepositoryImpl(localDatasource: getIt(), remoteDatasource: getIt()),
   );
 }
@@ -63,14 +64,11 @@ void registerProviders() {
       searchArticlesUsecase: getIt(),
     ),
   );
-  getIt.registerSingleton(
-    SingleArticleProvider(
-      getArticleByIdUsecase: getIt(),
-      isFavouriteArticleUsecase: getIt(),
-    ),
+  getIt.registerFactory(
+    () => SingleArticleProvider(isFavouriteArticleUsecase: getIt()),
   );
-  getIt.registerSingleton(
-    FavouriteArticlesProvider(
+  getIt.registerFactory(
+    () => FavouriteArticlesProvider(
       addFavouriteArticleUsecase: getIt(),
       getFavouriteArticleUsecase: getIt(),
       removeFavouriteArticleUsecase: getIt(),

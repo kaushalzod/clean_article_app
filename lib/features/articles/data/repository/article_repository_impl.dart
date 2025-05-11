@@ -82,8 +82,14 @@ class ArticleRepositoryImpl implements ArticleRepository {
   @override
   Future<Either<Failure, List<Article>>> removeFavouriteArticle(
     Article article,
-  ) {
-    // TODO: implement removeFavouriteArticle
-    throw UnimplementedError();
+  ) async {
+    try {
+      final articles = await localDatasource.removeFavouriteArticles(
+        ArticleModel.fromEntity(article),
+      );
+      return Right(articles);
+    } catch (e) {
+      return Left(e is Failure ? e : ServerFailure(errorMessage: e.toString()));
+    }
   }
 }

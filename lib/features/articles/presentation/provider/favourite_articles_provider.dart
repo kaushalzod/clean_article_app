@@ -68,6 +68,7 @@ class FavouriteArticlesProvider with ChangeNotifier {
         status = FavouriteArticlesStatus.success;
         errorMessage = '';
         favouriteArticles = r;
+        print(favouriteArticles);
       },
     );
   }

@@ -1,16 +1,83 @@
-# article_app
+# 📚 Flutter Article App
 
-A new Flutter project.
+A Flutter app that fetches and displays a list of articles from a public API, providing a seamless and responsive experience with essential features like search, article details and Favourites.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
+- 📄 **List of Articles:** Browse articles fetched from a public API.
+- 🔍 **Search Functionality:** Quickly find articles using keywords.
+- 📑 **Detail View:** View full article content with additional metadata.
+- 📑 **Favourite View:** Browse articles Marked as favourites.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ Setup Instructions
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/kaushalzod/clean_article_app.git
+   cd clean_article_app
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   flutter pub get
+   ```
+
+3. **Run the app:**
+
+   ```bash
+   flutter run
+   ```
+
+---
+
+## 💻 Tech Stack
+
+- **Flutter SDK:** 3.29+
+- **State Management:** Provider
+- **HTTP Client:** dio
+- **Persistence:** shared_preferences
+
+---
+
+## 📐 State Management Explanation
+
+The app uses **Provider** for state management, providing a simple yet powerful approach to handle the state of articles, search queries, article details and favourites. This approach ensures a clear separation of concerns, promoting scalability and testability.
+
+---
+
+## ⚠️ Known Issues / Limitations
+
+- ❗ Initial loading can be optimized with caching.
+- ❗ Testcases to be written for entire project
+
+---
+
+## 📸 Screenshots (Optional)
+
+### Home Screen
+
+![Home Screen](./screenshots/home.png)
+
+### Article Detail
+
+![Article Detail](./screenshots/article.png)
+
+### Search Screen
+
+![Search Screen](./screenshots/search.png)
+
+### Favourite Screen
+
+![Search Screen](./screenshots/fav.png)
+
+## 🌱 Future Improvements
+
+- Add offline support for reading articles.
+- Improve UI design for better user Experience
+- Implement pagination for larger article lists.
