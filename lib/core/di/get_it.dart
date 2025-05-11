@@ -67,8 +67,8 @@ void registerProviders() {
   getIt.registerFactory(
     () => SingleArticleProvider(isFavouriteArticleUsecase: getIt()),
   );
-  getIt.registerFactory(
-    () => FavouriteArticlesProvider(
+  getIt.registerSingleton(
+    FavouriteArticlesProvider(
       addFavouriteArticleUsecase: getIt(),
       getFavouriteArticleUsecase: getIt(),
       removeFavouriteArticleUsecase: getIt(),

@@ -58,7 +58,7 @@ The app uses **Provider** for state management, providing a simple yet powerful 
 
 ---
 
-## 📸 Screenshots (Optional)
+## 📸 Screenshots
 
 ### Home Screen | Article Detail
 

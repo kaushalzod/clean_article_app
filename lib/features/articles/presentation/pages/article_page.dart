@@ -19,9 +19,7 @@ class ArticlePage extends StatelessWidget {
               (context) =>
                   getIt<SingleArticleProvider>()..getArticleById(article),
         ),
-        ChangeNotifierProvider(
-          create: (context) => getIt<FavouriteArticlesProvider>(),
-        ),
+        ChangeNotifierProvider.value(value: getIt<FavouriteArticlesProvider>()),
       ],
       builder: (context, child) {
         return Scaffold(

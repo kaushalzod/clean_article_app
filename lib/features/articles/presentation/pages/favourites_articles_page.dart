@@ -8,10 +8,8 @@ class FavouritesArticlesPage extends StatelessWidget {
   const FavouritesArticlesPage({super.key});
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) {
-        return getIt<FavouriteArticlesProvider>()..getFavouriteArticles();
-      },
+    return ChangeNotifierProvider.value(
+      value: getIt<FavouriteArticlesProvider>()..getFavouriteArticles(),
       child: Scaffold(
         appBar: AppBar(title: Text("Favourites")),
         body: Consumer<FavouriteArticlesProvider>(
@@ -23,8 +21,9 @@ class FavouritesArticlesPage extends StatelessWidget {
               return Center(child: Text(provider.errorMessage));
             }
             if (provider.status == FavouriteArticlesStatus.success) {
-              if (provider.favouriteArticles.isEmpty)
+              if (provider.favouriteArticles.isEmpty) {
                 return Center(child: Text("No Favourites Found"));
+              }
               return ListView.builder(
                 itemCount: provider.favouriteArticles.length,
                 itemBuilder: (context, index) {
