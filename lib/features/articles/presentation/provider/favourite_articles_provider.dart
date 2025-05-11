@@ -37,7 +37,7 @@ class FavouriteArticlesProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void addFavouriteArticle(Article article) async {
+  Future<void> addFavouriteArticle(Article article) async {
     status = FavouriteArticlesStatus.loading;
     notifyListeners();
 
@@ -47,7 +47,7 @@ class FavouriteArticlesProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void removeFavouriteArticle(Article article) async {
+  Future<void> removeFavouriteArticle(Article article) async {
     status = FavouriteArticlesStatus.loading;
     notifyListeners();
 

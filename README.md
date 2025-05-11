@@ -60,21 +60,19 @@ The app uses **Provider** for state management, providing a simple yet powerful 
 
 ## 📸 Screenshots (Optional)
 
-### Home Screen
+### Home Screen | Article Detail
 
-![Home Screen](./screenshots/home.png)
+<p align="center">
+  <img src="./screenshots/home.png" alt="App Screenshot 1" width="45%">
+  <img src="./screenshots/article.png" alt="App Screenshot 2" width="45%">
+</p>
 
-### Article Detail
+### Search Screen | Favourite Screen
 
-![Article Detail](./screenshots/article.png)
-
-### Search Screen
-
-![Search Screen](./screenshots/search.png)
-
-### Favourite Screen
-
-![Search Screen](./screenshots/fav.png)
+<p align="center">
+  <img src="./screenshots/search.png" alt="App Screenshot 1" width="45%">
+  <img src="./screenshots/fav.png" alt="App Screenshot 2" width="45%">
+</p>
 
 ## 🌱 Future Improvements
 

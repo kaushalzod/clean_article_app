@@ -14,7 +14,7 @@ class SingleArticleProvider extends ChangeNotifier {
 
   Article? articles;
 
-  void getArticleById(Article article) async {
+  Future<void> getArticleById(Article article) async {
     articles = article;
     status = SingleArticleStatus.loading;
     notifyListeners();

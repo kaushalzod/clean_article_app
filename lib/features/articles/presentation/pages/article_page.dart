@@ -44,14 +44,15 @@ class ArticlePage extends StatelessWidget {
                       Consumer<SingleArticleProvider>(
                         builder: (context, value, child) {
                           return IconButton(
-                            onPressed: () {
+                            onPressed: () async {
                               value.articles!.isFavourite
-                                  ? context
+                                  ? await context
                                       .read<FavouriteArticlesProvider>()
                                       .removeFavouriteArticle(article)
-                                  : context
+                                  : await context
                                       .read<FavouriteArticlesProvider>()
                                       .addFavouriteArticle(article);
+                              await value.getArticleById(article);
                             },
                             icon:
                                 value.articles!.isFavourite
